@@ -12,6 +12,12 @@ app.get('/', function(req,res){
   res.sendFile('views/index.html' , { root : __dirname})
 })
 
+app.get('/:word/echo', (req,res) => {
+  var word = req.params.word
+  res.json({
+    echo: word
+  })
+})
 app.get('/now', (req, res, next) =>{
   req.time = new Date().toString()
   next()
