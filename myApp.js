@@ -14,7 +14,13 @@ app.get('/', function(req,res){
   res.sendFile('views/index.html' , { root : __dirname})
 })
 
-app.route('/name').post(function(req, res) {
+// app.route('/name').get(function(req,res) {
+//   var {first: firstname, last: lastname} = req.query
+//   res.json({
+//     name: `${firstname} ${lastname}`
+//   })
+// })
+app.post('/name', function(req, res) {
   var {first: firstname, last: lastname} = req.body
   res.json({
     name: `${firstname} ${lastname}`
