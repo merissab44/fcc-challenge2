@@ -12,6 +12,17 @@ app.get('/', function(req,res){
   res.sendFile('views/index.html' , { root : __dirname})
 })
 
+app.get('/now', (req, res, next) =>{
+  req.time = new Date().toString()
+  next()
+  
+}, (req, res) => {
+  res.json({
+    time: req.time
+  })
+}
+       )
+
 // app.get('/json', (req, res) => {
 //   const secret = process.env['MESSAGE_STYLE']
 //   if (secret === "uppercase") {
