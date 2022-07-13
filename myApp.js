@@ -12,6 +12,12 @@ app.get('/', function(req,res){
   res.sendFile('views/index.html' , { root : __dirname})
 })
 
+app.route('/name').get(function(req,res) {
+  var {first: firstname, last: lastname} = req.query
+  res.json({
+    name: `${firstname} ${lastname}`
+  })
+})
 app.get('/:word/echo', (req,res) => {
   var word = req.params.word
   res.json({
